@@ -1,0 +1,72 @@
+Pointers
+
+a pointer is a variable that can store the memory address of any location, of any variable, function or array etc.
+
+Inorder to store an address, we need some memory location to be assigned to it, which is called a pointer variable.
+
+Pointer declaration :
+
+<base data type> * ptr;
+
+the variable ptr can store any address of data type given under <base data type>.
+
+eg.,
+int * ptr;
+
+here ptr can store address of any integer.
+So if we have an integer variable, x, we can store address of x in ptr.
+
+We can declare multiple pointer variables of same base data type in a single line by seperating the variable names with comma, however every variable name must be preceded by * inorder to be a pointer.
+
+eg., int *p1 , p2 , *p3;
+
+Here only p1 and p3 are pointer variables as they are preceded by * in the declaration , where as p2 is a normal integer variable.
+
+
+
+How to retrieve address of a variable ?
+
+We can retrieve the address of a variable by applying the unary & operator on the variable and assign it to the pointer variable as below :
+
+ptr = &x; // Here is ptr is said to be pointing to x
+
+How to access the value of a variable, using the pointer pointing to it?
+
+We can access the value of a variable using its address stored in a pointer variable by using Indirection operator *. It is a unary operator.
+
+So we can apply * on a pointer variable to access the value at the memory location it is pointing at.
+
+After applying indirection operator on a pointer variable, the expression is interchangeable with the variable itself.
+
+eg., if ptr = &x, we can use ptr wherever we have to use &x, similarly ,we can use *ptr wherever we have to use x.
+
+x = 10 , will now become *ptr = 10.
+scanf("%d",&x) now can be written as scanf("%d",ptr);
+printf("%d",x) can be written as printf("%d",*ptr);
+x += 100 can be written as *ptr += 100;
+x++ can be written as (*ptr)++;
+++x can be written as ++*ptr.
+
+
+A variable can be pointed to by multiple pointers at a time and its value can be changed using any pointer.
+
+eg., int x = 50;
+int *p1,*p2,*p3;
+p1 = &x;
+p2 = p3 = &x ;
+*p1 = 60; // changes x value to 60 and accordingly *p2 and *p3 will also change.
+*p3 = 2 * x; // will assign 120 to x.
+
+A pointer variable can point to only one variable at a time but it can change its pointing to another variable whenver required.
+
+eg., int x=10,y=20;
+int *p1;
+p1 = &x; //p1 is pointing to x right now.
+*p1 = 30; // this effects value of x
+
+p1 = &y; // p1 is pointing to y right now.
+*p1 = 60; // this statement effects the value of y now, as p1 is pointing to y right now.
+
+
+
+

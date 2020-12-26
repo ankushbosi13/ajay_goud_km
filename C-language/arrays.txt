@@ -1,0 +1,66 @@
+ARRAYS:
+Array is a collection of homogeneous elements, stored in contiguous memory locations.
+
+Declaration :
+<data type> varname[<no of elements>];
+
+<no of elements> must be a whole number which is >= 0.It cannot be left empty.
+
+How to access individual elements:
+Each individual element will get a unique identification number called index. Indexes will always start with 0. So the first element index is 0, second element index is 1, etc.
+each element is accessed using the array name followed by the index, using below syntax :
+varname[index] : this expression represents the value of the memory location of element at the specified index in square brackets. This expression can be used in any expression where the data type of that variable is eligible to be used.
+eg., int arr[10];
+arr[0] = 10; // assign 10 to first element
+printf("%d",arr[1]);//print the second element
+scanf("%d",&arr[2]);//take input for 3rd element
+y = arr[4] + 15;
+index can also be a integer variable or integer expression, its value can be -ve or +ve.
+
+eg., int i = 3;
+arr[i] represents index 3 or 4th element of the array.
+
+Array boundaries are never checked by the compiler. 
+We can read any element beyond the array boundaries, the result will be garbage.
+
+Initialization :
+Array can be initialized in following ways:
+1 ) int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+all elements are initialized with values.
+2 ) int arr[10] = {1,2,3}; // less initializers than required
+first 3 elements are initialized to given values,and remaining are initialized to 0.
+3 ) int arr[10] = {1,2,3,4,5,6,7,8,9,10,11,12}; //more than required
+only required elements are initialized and remaining ignored. This may raise a warning / error as per some compilers.
+4 ) int arr[] = {1,2,3}; //no size
+array is created with 3 elements, as initializer contains 3 elements.
+5 ) We can initialize only specific index elements, we can do so by designating the number directly to index using below syntax:
+int arr[10] = {[2] = 10,[7]=14};
+Here only 3rd and 8th elements are initialized. This is allowed only C99 onwards.
+Size of array:
+Array size is a positive integer constant / variable with an initial value. 
+Array size is optional when the array is initialized. The number of elements of the array can be calculcated from the initialization list.
+array size in bytes, can be checked by using sizeof operator, by passing the array variable name to sizeof operator.
+
+array size = no of elements * size of data type.
+
+Variable sized arrays:
+array size can be a variable, but its value should be initialized before declaration of the array. And a variable sized array should not be initialized.
+
+eg., int n = 10;
+int arr[n]; // should not be initialized
+
+all storage classes ,except register is applicable for arrays. If you apply register, it is not an error, however, since register memory size is limited, the array will automatically convert to auto. Arrays will follow all the storage class rules, as defined.
+
+How to pass an Array as an argument to a function:
+int arr[10];
+if a function, fun1darr expects a single dimensional array of integers as an argument, you can declare the function as below:
+<returntype> fun1darr(int arr[] , int size);
+size of the array must be shared with function separately as it is not transferred along with array.
+
+function call: while calling the function, just the array name can be passed inplace of the argument.
+fun1darr(arr,10);
+
+
+
+
+
